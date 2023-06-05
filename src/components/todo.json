@@ -1,0 +1,22 @@
+[
+  {
+    "id": "id-1",
+    "title": "заниматься спортом",
+    "completed": true
+  },
+  {
+    "id": "id-2",
+    "title": "пить много воды",
+    "completed": false
+  },
+  {
+    "id": "id-3",
+    "title": "изменить жизнь к лучшему",
+    "completed": false
+  },
+  {
+    "id": "id-4",
+    "title": "забить на все *уй",
+    "completed": true
+  }
+]

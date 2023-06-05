@@ -1,0 +1,7 @@
+.ToDoItem {
+    list-style: none;
+    width: 200px;
+    margin-bottom: 16px;
+    padding: 4px;
+    border: 2px solid red ;
+}
