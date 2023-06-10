@@ -16,6 +16,8 @@ export class ToDoList extends Component {
     }));
   };
 
+
+
   handleDelete = id => {
     this.setState(prevState => ({
       todoList: prevState.todoList.filter(todo => todo.id !== id),
