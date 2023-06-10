@@ -11,7 +11,7 @@ export const ToDo = ({ todo, handleCheckCompleted,handleDelete }) => {
           {todo.title}
         </div>
         <div>
-          <button type="button" onClick={()=>{handleDelete(todo.id)}}>Close</button>
+          <button disabled={!todo.completed} type="button" onClick={()=>{handleDelete(todo.id)}}>Close</button>
         </div>
       </div>
     </li>

@@ -4,7 +4,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { Modal } from './Modal/Modal';
 import { ToDoList } from './ToDo/ToDoList';
 import { Header } from './Header/Header';
-import { FormToDo } from 'components/FormToDo/FormToDo';
+import { Registration } from 'components/RegistrationForm/RegistrationForm';
 
 
 
@@ -43,7 +43,7 @@ export class App extends Component {
 
         {this.state.isShowModal && (
           <Modal closeModal={this.onCloseModal}>
-            <FormToDo createUser={this.createUser} closeModal={this.onCloseModal}/>
+            <Registration createUser={this.createUser} closeModal={this.onCloseModal}/>
           </Modal>
         )}
       </div>

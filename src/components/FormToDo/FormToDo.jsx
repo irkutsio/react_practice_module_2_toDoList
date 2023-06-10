@@ -1,13 +1,9 @@
-import React, { Component } from 'react';
+import { Component } from 'react';
 
 export class FormToDo extends Component {
   state = {
-    email: '',
-    password: '',
-    isChecked: false,
-    gender: 'male',
+    todo: '',
   };
-
   handleChange = ({ target }) => {
     this.setState({
       [target.name]: target.value,
@@ -16,95 +12,29 @@ export class FormToDo extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    this.props.createUser({
-      email: this.state.email,
-      password: this.state.password,
-    });
+    this.props.addToDo(this.state.todo)
     this.setState({
-      email: '',
-      password: '',
+      todo: '',
     });
-    this.props.closeModal();
-  };
-
-  handleChecked = e => {
-    this.setState({
-      isChecked: e.target.checked,
-    });
-  };
-
-  handelRadio = e => {
-    
-    this.setState({ gender: e.target.value });
   };
 
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
         <div className="mb-3">
-          <label className="form-label">Email address</label>
+          <label className="form-label">Create to-do</label>
           <input
-            name="email"
-            type="email"
+            name="todo"
+            type="text"
             className="form-control"
             id="exampleInputEmail1"
             onChange={this.handleChange}
-            value={this.state.email}
+            value={this.state.todo}
           />
-          <div id="emailHelp" className="form-text">
-            We'll never share your email with anyone else.
-          </div>
-        </div>
-        <div className="mb-3">
-          <label className="form-label">Password</label>
-          <input
-            name="password"
-            type="password"
-            className="form-control"
-            id="exampleInputPassword1"
-            onChange={this.handleChange}
-            value={this.state.password}
-          />
-        </div>
-        <div className="mb-3 form-check">
-          <input
-            type="checkbox"
-            className="form-check-input"
-            id="exampleCheck1"
-            checked={this.state.isChecked}
-            onChange={this.handleChecked}
-          />
-          <label className="form-check-label">I agree</label>
         </div>
 
-        <div className="form-check">
-          <input
-            className="form-check-input"
-            type="radio"
-            value="male"
-            id="flexCheckChecked1"
-            checked={this.state.gender === 'male'}
-            onChange={this.handelRadio}
-          />
-          <label className="form-check-label">Male</label>
-        </div>
-        <div className="form-check">
-          <input
-            className="form-check-input"
-            type="radio"
-            value="female"
-            id="flexCheckChecked"
-            checked={this.state.gender === 'female'}
-            onChange={this.handelRadio}
-          />
-          <label className="form-check-label">Female</label>
-        </div>
-        <button
-          type="submit"
-          disabled={!this.state.isChecked}
-          className="btn btn-primary"
-        >
-          Submit
+        <button type="submit" className="btn btn-primary">
+          Add to-do
         </button>
       </form>
     );
