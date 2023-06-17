@@ -15,7 +15,7 @@ export class ToDoList extends Component {
   };
 
   componentDidMount() {
-    // localStorage.setItem('todo', JSON.stringify(todo));
+    localStorage.setItem('todo', JSON.stringify(todo));
     if (localStorage.getItem('todo')) {
       this.setState({ todoList: JSON.parse(localStorage.getItem('todo')) });
     } 
@@ -26,7 +26,7 @@ export class ToDoList extends Component {
       localStorage.setItem('todo', JSON.stringify(this.state.todoList));
       this.setState({
         isDelete: true,
-        // todo: localStorage.getItem('todo'),
+        todo: localStorage.getItem('todo'),
       });
       setTimeout(() => {
         this.setState({
@@ -39,7 +39,7 @@ export class ToDoList extends Component {
       localStorage.setItem('todo', JSON.stringify(this.state.todoList));
       this.setState({
         isCreate: true,
-        // todo: localStorage.getItem('todo'),
+        todo: localStorage.getItem('todo'),
       });
       setTimeout(() => {
         this.setState({
