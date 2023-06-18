@@ -27,7 +27,7 @@ export const App = () => {
     <div>
       <Header showModal={onShowModal} />
       <ToDoList />
-      {isShowModal && (
+      {!isShowModal && (
         <Modal closeModal={onCloseModal}>
           <Registration createUser={createUser} closeModal={onCloseModal} />
         </Modal>
