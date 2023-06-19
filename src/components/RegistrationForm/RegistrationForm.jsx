@@ -1,8 +1,21 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export const Registration = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState(() => {
+    return JSON.parse(window.localStorage.getItem('email')) ?? '';
+  });
+
+  const [password, setPassword] = useState(() => {
+    return JSON.parse(window.localStorage.getItem('password')) ?? '';
+  });
+
+  useEffect(() => {
+    window.localStorage.setItem('email', JSON.stringify(email));
+  }, [email]);
+
+  useEffect(() => {
+    window.localStorage.setItem('password', JSON.stringify(password));
+  }, [password]);
 
   const handleChange = event => {
     const { value, name } = event.target;
